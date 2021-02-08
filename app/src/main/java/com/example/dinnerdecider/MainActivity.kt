@@ -3,6 +3,7 @@ package com.example.dinnerdecider
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.dinnerdecider.databinding.ActivityMainBinding
 import kotlin.random.Random
 
@@ -10,6 +11,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
@@ -19,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             var choice: Int = Random.nextInt(0, 5)
             when (choice) {
                 0 -> {
+                    //option when 0
                     food = "Chips"
                     binding.backgroud.setBackgroundColor(Color.BLUE)
                     binding.backgroud.setBackgroundResource(R.drawable.chips)
@@ -48,8 +52,27 @@ class MainActivity : AppCompatActivity() {
 
             }
             binding.textView.text = food
+
+
         }
 
 
+    }
+    override fun onResume() {
+        super.onResume()
+        //binding.message.setText(data.getString("message",""))
+    }
+
+    override fun onStop() {
+        super.onStop()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+    fun saveData(){
+       // editdata=data.edit()
+        //editdata.putString("message", binding.message.text.toString())
+       // editdata.apply()
     }
 }
